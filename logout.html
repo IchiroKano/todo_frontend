@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログアウト中...</title>
+</head>
+<body>
+    <h2>ログアウトしています...</h2>
+    <p id="message">しばらくお待ちください。</p>
+
+    <script>
+        // ローカルストレージからトークンを削除
+        localStorage.removeItem("authToken");
+        console.log("authToken を削除しました。");
+
+        // メッセージ更新
+        document.getElementById("message").innerText = "ログアウト完了！ログインページに移動します。";
+
+        // 2秒後に `login.html` へリダイレクト
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 2000);
+    </script>
+</body>
+</html>
